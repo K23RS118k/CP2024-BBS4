@@ -56,10 +56,10 @@ function updateCharacterCount(inputId, counterId, maxLength) {
     const counter = $(`#${counterId}`);
     
     input.on('input', () => {
-        const length = input.val().length;
-        counter.text(`${length}/${maxLength}`);
+        const length = maxLength - input.val().length;
+        counter.text(`残り字数は:${length}`);
     
-        if (length > maxLength) {
+        if (length < 0) {
             counter.addClass('error');
         } else {
             counter.removeClass('error');
@@ -588,7 +588,8 @@ window.addEventListener('unload', function() {
             <div class="modal-body">
                 <div class="form-group">
                     <textarea id="editContent" class="form-control"></textarea>
-                    <small class="character-count" id="editContentCount">0/1000</small>
+                    <!-- 字数 -->
+                    <small class="character-count" id="editContentCount">残り字数は：1000</small>
                 </div>
             </div>
             <div class="modal-footer">
