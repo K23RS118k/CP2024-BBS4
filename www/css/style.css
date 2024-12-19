@@ -96,6 +96,11 @@ textarea.form-control {
     color: #dc3545;
 }
 
+.character-count.alert {
+    color: yellow;
+}
+
+
 /* ボタン */
 .button-group {
     display: flex;
