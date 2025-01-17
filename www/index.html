@@ -59,15 +59,17 @@ function updateCharacterCount(inputId, counterId, maxLength) {
         const length = maxLength - input.val().length;
         counter.text(`残り字数は:${length}`);
     
-        if (length < 0) {
-            counter.addClass('error');
-        } else if(length<10) {
-            counter.addClass('alert');
-        }else if(length>10){
-            counter.removeClass('alert');
-        }else{
-            counter.removeClass('error');
-        }
+        if (length <= 0) {
+    counter.addClass('error');
+    counter.removeClass('alert');
+} else if (length >= 1 && length <= 10) {
+    counter.addClass('alert');
+    counter.removeClass('error');
+} else {
+    counter.removeClass('error');
+    counter.removeClass('alert');
+}
+
     });
 }
 
